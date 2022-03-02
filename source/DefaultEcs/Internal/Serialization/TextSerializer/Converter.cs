@@ -141,7 +141,7 @@ namespace DefaultEcs.Internal.Serialization.TextSerializer
                 Type type when type == typeof(float) => GetActions((StreamWriterWrapper w, in float v) => w.Stream.WriteLine(v), i => float.Parse(i, provider: CultureInfo.InvariantCulture)),
                 Type type when type == typeof(string) => StringConverter.GetActions<T>(),
                 Type type when type == typeof(Guid) => GuidConverter.GetActions<T>(),
-                _ => ObjectConverter<T>.GetActions()
+                _ => throw new NotImplementedException()
             };
         }
 

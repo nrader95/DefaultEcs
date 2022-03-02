@@ -125,7 +125,7 @@ namespace DefaultEcs.Internal.Serialization.BinarySerializer
                 Type type when type.IsArray => ArrayConverter.GetActions<T>(),
                 Type type when type.IsUnmanaged() => UnmanagedConverter.GetActions<T>(),
                 Type type when type == typeof(string) => StringConverter.GetActions<T>(),
-                _ => ManagedConverter.GetActions<T>()
+                _ => throw new NotImplementedException()
             };
         }
 
